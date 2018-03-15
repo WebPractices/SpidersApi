@@ -6,7 +6,10 @@ import json
 from datetime import datetime
 
 from .utils import parse_url
+from db import MongodbClient
 
+
+conn = MongodbClient()
 
 def get_img_url():
     params = {
@@ -35,7 +38,7 @@ def get_img_info():
         date = datetime.now().strftime('%Y-%m-%d')
         title = result.get('title', '图片')
         attribute = result.get('attribute', '')
-        para = result.get('para', '')
+        para = result.get('para1', '')
         country = result.get('Country', '')
         city = result.get('City', '')
         continent = result.get('Continent', '')
@@ -55,8 +58,6 @@ def main():
     image = get_img_url()
     info = get_img_info()
 
-    return {'image': image, 'info': info}
+    data = {**image, **info}
+    conn.put(data)
 
-
-data = main()
-print(data)
