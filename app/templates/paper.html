@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% if title %}{{ title }}{% else %}{{ paper.title }}{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="paper">
+    <a href="{{ paper.url }}">
+        <img src="{{ paper.url }}" alt="{{ paper.title }}">
+    </a>
+    <div class="new-info">
+        <h3>{{ paper.copyright }}</h3>
+        <p class="date">
+            <span>日期</span>
+            <em>{{ paper.date }}</em>
+        </p>
+        <p class="location">
+            <em>{{ paper.continent }},{{ paper.country }},{{ paper.attribute }}</em>
+        </p>
+    </div>
+    <div class="new-descript">
+        <h3>{{ paper.title }}</h3>
+        <p class="des">
+            {{ paper.para }}
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    window.onload = function() {
+        var infoDiv = document.getElementsByClassName('new-info')[0];
+        var decDiv = document.getElementsByClassName('new-descript')[0];
+        var img = document.getElementsByClassName('paper')[0];
+
+        img.onmouseenter = function() {
+            infoDiv.style.display = 'block';
+            decDiv.style.display = 'block';
+        };
+        img.onmouseleave = function() {
+            infoDiv.style.display = 'none';
+            decDiv.style.display = 'none';
+        };
+    };
+</script>
+{% endblock %}

@@ -1,0 +1,180 @@
+/*bing paper styles*/
+body {
+    margin: 0;
+    padding: 0;
+    background: #f5f7f9;
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #1a1a1a;
+    font-size: 14px;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    padding-bottom: 100px;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border-radius: 6px;
+    box-shadow: 0 0 10px #ccc;
+}
+/*header*/
+#header {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+}
+
+.logo {
+    float: left;
+    margin-top: 10px;
+}
+
+.logo a {
+    font-size: 26px;
+    color: #df846c;
+}
+
+.logo span {
+    color: #999;
+}
+
+.header-nav {
+    float: right;
+}
+
+.header-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header-nav ul li {
+    float: left;
+    margin: 18px 15px;
+    font-size: 16px;
+}
+
+.header-nav a {
+    color: #555;
+}
+
+.header-nav a:hover {
+    color: #000;
+}
+
+/*main*/
+#main {
+    margin-top: 20px;
+    width: 100%;
+}
+
+ul.paper-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.paper-list li {
+    float: left;
+    position: relative;
+}
+
+ul.paper-list img {
+    width: 480px;
+}
+
+.descript,.new-info {
+    display: none;
+    width: 460px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    color: #fff;
+    padding: 0 10px;
+    background: #1111118f;
+}
+
+/*new*/
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.paper {
+    position: absolute;
+}
+
+.paper img {
+    width: 960px;
+}
+
+.new-info {
+    display: none;
+    width: 940px;
+}
+
+.new-descript {
+    display: none;
+    width: 940px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    color: #fff;
+    padding: 0 10px;
+    background: #1111118f;
+}
+
+
+/*footer*/
+#footer {
+    text-align: center;
+    height: 80px;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+.pages a.page-btn {
+    color: #df846c;
+    padding: 2px 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: 0 20px 5px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.pages a.page-btn:hover {
+    color: #fff;
+    background: #df846c;
+}
+
+.copyright p {
+    margin: 3px;
+}
+
+
+@media (max-width: 768px) {
+    .container,.paper {
+        width: 100%;
+    }
+    ul.paper-list img {
+        width: 100%;
+    }
+    .descript {
+        width: 90%;
+    }
+    .paper img {
+        width: 100%;
+    }
+    .new-info,.new-descript {
+        width: 95%;
+    }
+}

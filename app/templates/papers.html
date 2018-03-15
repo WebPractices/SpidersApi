@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+壁纸聚合
+{% endblock %}
+
+{% block content %}
+{% if papers %}
+{% for paper in papers %}
+<ul class="paper-list">
+    <li class="paper-item">
+        <a href="{{ url_for('paper', num=paper.num) }}">
+            <img src="{{ paper.url }}" alt="{{ paper.title }}">
+        </a>
+        <div class="descript">
+            <h3>{{ paper.copyright }}</h3>
+            <p class="date">
+                <span>日期</span>
+                <em>{{ paper.date }}</em>
+            </p>
+            <p class="location">
+                <em>{{ paper.continent }},{{ paper.country }},{{ paper.attribute }}</em>
+            </p>
+        </div>
+    </li>
+</ul>
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+{% block pages %}
+<div class="pages">
+    {% if prev %}
+    <a href="{{url_for('all_papers',page=page-1)}}" class="page-btn">prev</a>
+    {% endif %}
+    共{{ pages }}页
+    {% if next %}
+    <a href="{{url_for('all_papers',page=page+1)}}" class="page-btn">next</a>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    window.onload = function() {
+
+        var imgs = document.getElementsByClassName('paper-item');
+
+        for (var i=0;i<imgs.length;i++) {
+            imgs[i].onmouseenter = function() {
+                var decDiv = this.getElementsByClassName('descript')[0];
+                decDiv.style.display = 'block';
+            };
+            imgs[i].onmouseleave = function() {
+                var decDiv = this.getElementsByClassName('descript')[0];
+                decDiv.style.display = 'none';
+            };
+        }
+    };
+</script>
+{% endblock %}

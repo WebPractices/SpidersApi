@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}bing paper{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bing.css')}}">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="blank" />
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/">意外</a>
+                <span>必应壁纸聚合</span>
+            </div>
+            <div class="header-nav">
+                <ul>
+                    <li><a href="/">最新</a></li>
+                    <li><a href="{{url_for('all_papers')}}">历史</a></li>
+                    <li><a href="">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div id="footer">
+        {% block pages %}{% endblock %}
+        <div class="copyright">
+            <p>© 2017 yukun</p>
+            <p>站点所有展示壁纸均来自必应搜索</p>
+        </div>
+    </div>
+
+    {% block script %}
+    {% endblock %}
+</body>
+</html>
