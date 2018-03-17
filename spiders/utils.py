@@ -13,7 +13,7 @@ def parse_url(url, data=None):
     try:
         resp = requests.get(url, headers=headers, params=data)
         if resp.status_code == 200:
-            return resp.text
+            return resp
         return None
     except ConnectionError:
         print('Error.')

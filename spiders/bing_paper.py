@@ -19,11 +19,12 @@ def get_img_url():
         'pid': 'hp'
     }
     base_url = 'https://www.bing.com/HPImageArchive.aspx'
-    resp = parse_url(base_url, params)
+    resp = parse_url(base_url, params).text
     result = json.loads(resp)
     if result:
         bing_url = 'https://www.bing.com'
         img_url = bing_url + result['images'][0]['url']
+
         img_copyright = result['images'][0]['copyright']
         return {'url': img_url, 'copyright': img_copyright}
 
@@ -32,7 +33,7 @@ def get_img_url():
 
 def get_img_info():
     url = 'https://cn.bing.com/cnhp/coverstory/'
-    resp = parse_url(url)
+    resp = parse_url(url).text
     result = json.loads(resp)
     if result:
         date = datetime.now().strftime('%Y-%m-%d')
@@ -54,10 +55,17 @@ def get_img_info():
     return None
 
 
+# def download(url):
+#     content = parse_url(url).content
+#     qn_upload = 'https://upload-z2.qiniup.com/'
+#     form = {
+#
+#     }
+
+
 def main():
     image = get_img_url()
     info = get_img_info()
 
     data = {**image, **info}
     conn.put(data)
-
