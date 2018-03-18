@@ -98,7 +98,7 @@ ul.paper-list img {
     position: absolute;
     color: #fff;
     padding: 0 10px;
-    background: #1111118f;
+    background: rgba(17, 17, 17, 0.42);
 }
 
 /*new*/
@@ -128,7 +128,7 @@ ul.paper-list img {
     position: absolute;
     color: #fff;
     padding: 0 10px;
-    background: #1111118f;
+    background: rgba(17, 17, 17, 0.42);
 }
 
 
