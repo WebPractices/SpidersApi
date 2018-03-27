@@ -8,7 +8,7 @@ def get_pages():
     papers = conn.get_nums
     if papers and papers >= 10:
         page = papers // 10
-        return page
+        return page + 1
     return 1
 
 @app.route('/')

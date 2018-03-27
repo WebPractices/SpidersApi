@@ -45,12 +45,12 @@ class MongodbClient(object):
         """
         if self.get_nums != 0:
             self.sort()
-            pages = self.get_nums // count if self.get_nums >= 10 else 1
+            pages = self.get_nums // count + 1 if self.get_nums >= 10 else 1
 
             paginate = []
             for p in range(1, pages+1):
                 if p > 1:
-                    datas = [i for i in self.db[self.table].find().limit(count).skip(p*count)]
+                    datas = [i for i in self.db[self.table].find().limit(count).skip((p-1)*count)]
                 else:
                     datas = [i for i in self.db[self.table].find().limit(count)]
                 paginate.append({'page': p, 'data': datas})
